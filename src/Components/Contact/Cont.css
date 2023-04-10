@@ -54,6 +54,10 @@
     font-size: .8rem;
 }
 
+.remove{
+    text-decoration: none;
+    color: black;
+}
 /* ========================== FORM ======================== */
 
 form{

@@ -2,21 +2,31 @@ import React, { Suspense, useEffect, useState } from 'react';
 import './TotalList.css'
 import { AddNewList } from '../../Features/ListSlice';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { fetchListData } from '../../Features/ListSlice';
 
 function TotalList() {
   const [total, setTotal] = useState([[]])
 
-  const Totallists = useSelector(state => state.TotalList.list)
+  const dispatch = useDispatch()
+
+  
+  //to fetch data from srever
+  // useEffect(() => {
+  //   dispatch(fetchListData())
+
+  // }, []);
+
+  const Totallists = useSelector(state => state.TotalList)
 
   useEffect(() => {
     function fetchData() {
-
-      setTotal(Totallists);
+      setTotal(Totallists.list);
     }
     fetchData();
-  },[Totallists]);
+  }, [Totallists]);
   // console.log(...total)
-  
+
   const renderedLists = total.map((data, index) => {
     return (
       <div>
@@ -27,26 +37,31 @@ function TotalList() {
               <th>Quantity</th>
               <th>Price</th>
             </tr>
-            
+
             {data.map((subitem, i) => {
-              return(
+
+              return (
                 // console.log(subitem)
-                i >2 ?
-                <tr key={index}>
-                  
-                  <td>{subitem.itemName}</td>
-                  <td>{subitem.quantity}</td>
-                  <td>{subitem.price}</td>
-                </tr>:null
+                i > 3 ?
+                  <tr key={Math.random()}>
+
+                    <td>{subitem.itemName}</td>
+                    <td>{subitem.quantity}</td>
+                    <td>{subitem.price}</td>
+                  </tr> : null
 
               )
             })}
+            <tr>
+              <td colSpan={2}>total</td>
+              <td>{data[0]}</td>
+            </tr>
           </tbody>
         </table>
         <ul className='list '>
-          <li className='listcontent'>Customername : {data[0]}</li>
-          <li className='listcontent'>Date : {data[1]}</li>
-          <li className='listcontent'>Time : {data[2]}</li>
+          <li className='listcontent'>Customername : {data[1]}</li>
+          <li className='listcontent'>Date : {data[2]}</li>
+          <li className='listcontent'>Time : {data[3]}</li>
         </ul>
       </div>
     )
@@ -54,8 +69,10 @@ function TotalList() {
 
   return (
     <div className='container'>
-      <button className='btn' onClick={renderedLists}>Refresh</button>
-      {renderedLists}
+      {/* <button className='btn' onClick={renderedLists()}>Refresh</button> */}
+      {Totallists.loading && <div>Loading...</div>}
+      {!Totallists.loading && renderedLists}
+
     </div >
   )
 }

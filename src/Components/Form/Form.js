@@ -7,7 +7,6 @@ import "./Form.css"
 function Form() {
   const [newList, setNewList] = useState([])
   const [name, setName] = useState('')
-
   const event = new Date();
   const date = event.toLocaleDateString()
   const time = event.toLocaleTimeString()
@@ -19,16 +18,30 @@ function Form() {
     }
   }
 
+  
+
   const handleCustomerDetails = (e) => {
     e.preventDefault()
     setNewList([name, date, time , ...newList])
     setName('')
+     
   }
 
+  
+  // console.log(newList)
+
   const handleList = (list) => {
-    // console.log(list.bill)
     setNewList([...newList, list])
-    console.log(...newList)
+    // console.log(...newList)
+    // newList.map((data,i) => {
+    //   return(
+    //     console.log(data.price)
+    //   )
+    // })
+  }
+
+  const handleDelete = () => {
+    setNewList([])
   }
 
   return (
@@ -52,7 +65,8 @@ function Form() {
       </button>
       </form>
 
-      <ListForm newList={newList} />
+      <ListForm newList={newList} handleDelete={handleDelete} />
+      
     </div>
   )
 }

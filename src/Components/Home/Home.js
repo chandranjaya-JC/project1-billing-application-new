@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Home.css';
 import { Route,Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Home() {
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     const templist = []
+    //     axios.get('http://localhost:3001/data')
+    //     .then((data)=> setData(data.data))
+  
+    // },);
     return (
         <div className='home_container'>
             <div className='home_sub_container_left'>

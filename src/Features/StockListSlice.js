@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
 
 export const StockListSlice = createSlice({
     name: 'StockList',
@@ -29,6 +31,36 @@ export const StockListSlice = createSlice({
                 price: 20,
                 remainingQuantity: 25
             },
+            {
+                itemName: 'potato',
+                price: 45,
+                remainingQuantity: 18
+            },
+            {
+                itemName: 'cabbage',
+                price: 33,
+                remainingQuantity: 52
+            },{
+                itemName: 'strawberry',
+                price: 200,
+                remainingQuantity: 3
+            },{
+                itemName: 'onion',
+                price: 40,
+                remainingQuantity: 95
+            },{
+                itemName: 'capsicum',
+                price: 80,
+                remainingQuantity: 5
+            },{
+                itemName: 'beans',
+                price: 150,
+                remainingQuantity: 5
+            },{
+                itemName: 'mango',
+                price: 120,
+                remainingQuantity: 14
+            }
         ]
     },
     reducers: {

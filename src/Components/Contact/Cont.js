@@ -23,24 +23,27 @@ function Cont() {
 
       <div className=" container contact__container">
         <div className="contact__options">
-          <article className='contact__option article'>
+          <a 
+          href="mailto:sabarika309@gmail.com" 
+          rel="noprob" 
+          target="_blank"
+          className='contact__option article remove'>
             <MdMailOutline className='contact__option-icon' />
             <h4>Email</h4>
             <h5>sabarika309@gmail.com</h5>
-            <a href="mailto:sabarika309@gmail.com" rel="noprob" target="_blank">Send a message</a>
-          </article>
-          {/* <article className='contact__option'>
-            <RiMessengerLine className='contact__option-icon' />
-            <h4>Messenger</h4>
-            <h5>sabarika309@gmail.com</h5>
-            <a href="https://m.me/Biker_with_one_down_five_up" target="_blank">Send a message</a>
-          </article> */}
-          <article className='contact__option'>
+            <a >Send a message</a>
+          </a>
+          
+          <a 
+          className='contact__option remove'
+          href="https://wa.me/919952609812" 
+          rel="noprob" 
+          target="_blank">
             <BsWhatsapp className='contact__option-icon' />
             <h4>Whatsapp</h4>
             <h5>+91 995**-***12</h5>
-            <a href="https://api.whatsapp.com/send?phone+919080515514" target="_blank">Send a message</a>
-          </article>
+            <a >Send a message</a>
+          </a>
         </div>
 
         {/* { END OF CONTACT OPTIONS} */}
